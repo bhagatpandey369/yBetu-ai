@@ -95,20 +95,14 @@ nav ul a:hover{color:var(--cream)}
 .hv-badge-float.b1{top:-16px;right:-16px;color:var(--ag)}
 .hv-badge-float.b2{bottom:-16px;left:-16px;color:var(--ab)}
 
-@media(max-width:860px){
-  .hero-inner{grid-template-columns:1fr;gap:3rem}
-  .hero-visual{display:none}
-  #hero{text-align:center}
-  .hero-btns{justify-content:center}
-  .hero-sub{margin-left:auto;margin-right:auto}
-}
+/* hero 860 handled in main responsive blocks */
 .btn-p{display:inline-block;background:var(--cream);color:var(--bg-dark);text-decoration:none;padding:.75rem 1.6rem;border-radius:5px;font-size:.875rem;font-weight:500;transition:opacity .2s,transform .15s}
 .btn-p:hover{opacity:.88;transform:translateY(-1px)}
 .btn-o{display:inline-block;border:1px solid var(--border-md);color:var(--cream-dim);text-decoration:none;padding:.75rem 1.6rem;border-radius:5px;font-size:.875rem;font-weight:400;transition:border-color .2s,color .2s,background .2s}
 .btn-o:hover{border-color:rgba(244,243,236,.3);color:var(--cream);background:rgba(244,243,236,.04)}
 
 /* ── STATS ── */
-#stats{display:grid;grid-template-columns:repeat(2,1fr);background:var(--bg-dark);border-bottom:1px solid var(--border)}
+#stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bg-dark);border-bottom:1px solid var(--border)}
 .stat-cell{padding:2.8rem 2rem;border-right:1px solid var(--border);text-align:center}
 .stat-cell:last-child{border-right:none}
 .stat-n{font-size:2.4rem;font-weight:600;letter-spacing:-.03em;line-height:1;background:linear-gradient(135deg,var(--ay),var(--ag),var(--ab));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
@@ -298,134 +292,172 @@ footer{padding:3.5rem 5%;border-top:1px solid var(--border);display:grid;grid-te
   /* Nav */
   nav ul,.nav-cta{ display:none }
   .burger{ display:flex }
+  nav{ padding:0 4%; height:60px }
 
-  /* Hero — stack, show mini dashboard */
+  /* Hero */
   .hero-inner{ grid-template-columns:1fr; gap:2.5rem; text-align:center }
   .hero-btns{ justify-content:center }
   .hero-sub{ margin-left:auto; margin-right:auto; max-width:520px }
   .hero-badge{ margin-left:auto; margin-right:auto }
   #hero h1{ font-size:clamp(2rem,6vw,3rem) }
-  /* Show a compact dashboard on tablet */
   .hero-visual{ display:block; max-width:480px; margin:0 auto }
   .hv-badge-float{ display:none }
 
-  /* Stats */
-  #stats{ grid-template-columns:repeat(2,1fr) }
+  /* Stats — 2×2 grid */
+  #stats{ grid-template-columns:1fr 1fr }
   .stat-cell{ border-right:none; border-bottom:1px solid var(--border) }
   .stat-cell:nth-child(odd){ border-right:1px solid var(--border) }
-  .stat-cell:last-child,.stat-cell:nth-last-child(2):nth-child(odd){ border-bottom:none }
+  .stat-cell:nth-last-child(-n+2){ border-bottom:none }
+
+  /* Section text */
+  .sh{ font-size:clamp(1.6rem,4vw,2.2rem) }
 
   /* Grids → 2 col */
-  .cgrid-3,.tgrid,.pgrid,.sgrid{ grid-template-columns:1fr 1fr }
+  .cgrid-3{ grid-template-columns:1fr 1fr }
+  .tgrid{ grid-template-columns:1fr 1fr }
+  .pgrid{ grid-template-columns:1fr 1fr }
+  .sgrid{ grid-template-columns:1fr 1fr }
   .teamgrid{ grid-template-columns:1fr 1fr }
   .bento{ grid-template-columns:1fr 1fr }
   .bcard.tall{ grid-row:auto }
 
-  /* Products header */
+  /* Products */
   .prod-hdr{ flex-direction:column; align-items:flex-start; gap:1rem }
 
   /* Contact */
   .contact-grid{ grid-template-columns:1fr; gap:2.5rem }
 
   /* Footer */
-  footer{ grid-template-columns:1fr 1fr; gap:2rem }
+  footer{ grid-template-columns:1fr 1fr; gap:2rem; padding:3rem 4% }
+  .fbrand{ grid-column:1/-1 }
 
-  /* Pricing cards */
+  /* Pricing */
   .pgrid{ grid-template-columns:1fr 1fr }
-  .pcard.featured{ order:-1 }
+  .pcard.featured{ order:-1; grid-column:1/-1 }
+
+  /* CTA */
+  #cta-band{ padding:5rem 4% }
 }
 
 /* ══════════════════════════════════
-   RESPONSIVE — MOBILE (≤580px)
+   RESPONSIVE — MOBILE (≤640px)
 ══════════════════════════════════ */
-@media(max-width:580px){
-  :root{ --sp:3.5rem }
+@media(max-width:640px){
+  :root{ --sp:3rem }
 
   /* Nav */
-  nav{ padding:0 4%; height:60px }
-  .nav-wordmark{ font-size:.95rem }
+  nav{ padding:0 4%; height:58px }
+  .nav-wordmark{ font-size:.9rem; letter-spacing:.06em }
 
-  /* Hero */
-  #hero{ padding:7rem 4% 4rem; min-height:auto }
-  .hero-inner{ gap:2rem }
-  #hero h1{ font-size:2rem; letter-spacing:-.025em }
-  .hero-sub{ font-size:.92rem }
-  .hero-btns{ flex-direction:column; align-items:center }
-  .hero-btns .btn-p,.hero-btns .btn-o{ width:100%; text-align:center; padding:.85rem 1rem }
-  /* Hide dashboard on small phones — too cramped */
+  /* Mobile drawer */
+  .mobile-nav{ top:58px; padding:1.5rem 4% }
+  .mobile-nav a{ font-size:1rem; padding:.85rem 0 }
+  .mobile-nav .nav-cta{ padding:.85rem; font-size:.9rem }
+
+  /* Hero — full restack */
+  #hero{ padding:6rem 4% 3.5rem; min-height:auto }
+  .hero-inner{ gap:1.8rem; text-align:center }
+  #hero h1{ font-size:1.85rem; letter-spacing:-.025em; line-height:1.1 }
+  .hero-sub{ font-size:.9rem; margin-bottom:2rem; max-width:100% }
+  .hero-badge{ font-size:.65rem }
+  .hero-btns{ flex-direction:column; align-items:stretch; gap:.6rem }
+  .hero-btns .btn-p,
+  .hero-btns .btn-o{ width:100%; text-align:center; padding:.9rem 1rem; font-size:.9rem }
+  /* Hide dashboard on mobile — too small */
   .hero-visual{ display:none }
 
-  /* Stats — 2 col compact */
+  /* Stats — compact 2 col */
   #stats{ grid-template-columns:1fr 1fr }
-  .stat-cell{ padding:1.8rem 1rem }
-  .stat-n{ font-size:1.9rem }
-  .stat-d{ font-size:.75rem }
+  .stat-cell{ padding:1.5rem .75rem }
+  .stat-n{ font-size:1.75rem }
+  .stat-d{ font-size:.72rem; max-width:120px }
 
-  /* Logo strip */
-  #logos{ padding:2rem 4% }
-
-  /* Section inner padding */
+  /* Section spacing */
   .inner{ padding:0 4% }
-
-  /* Section headings */
-  .sh{ font-size:1.55rem }
+  .sh{ font-size:1.5rem }
+  .sp{ font-size:.88rem }
+  .kicker{ font-size:.65rem }
 
   /* All grids → 1 col */
-  .cgrid-3,.tgrid,.pgrid,.sgrid,.bento,.teamgrid{ grid-template-columns:1fr }
+  .cgrid-3,.tgrid,.sgrid,.bento{ grid-template-columns:1fr }
+  .pgrid{ grid-template-columns:1fr }
+  .pcard.featured{ order:-1; grid-column:auto }
 
   /* Card padding */
-  .ccard,.bcard,.tcard,.pcard,.scard,.tmcard{ padding:1.5rem }
+  .ccard{ padding:1.4rem 1.2rem }
+  .bcard{ padding:1.4rem 1.2rem }
+  .tcard{ padding:1.4rem 1.2rem }
+  .pcard{ padding:1.6rem 1.4rem }
+  .scard{ padding:1.4rem 1.2rem }
 
-  /* Products */
-  .prod-hdr{ flex-direction:column; align-items:flex-start }
-  .tabs{ flex-wrap:wrap; gap:.35rem }
-  .tab{ font-size:.75rem; padding:.35rem .85rem }
+  /* Products tabs */
+  .prod-hdr{ flex-direction:column; align-items:flex-start; gap:.85rem }
+  .tabs{ flex-wrap:wrap; gap:.3rem }
+  .tab{ font-size:.75rem; padding:.35rem .8rem }
 
-  /* Bento */
+  /* Bento tall */
   .bcard.tall{ grid-row:auto }
 
-  /* Pricing → 1 col, featured first */
-  .pgrid{ grid-template-columns:1fr }
-  .pcard.featured{ order:-1 }
-  .pprice{ font-size:2.2rem }
+  /* Pricing */
+  .pprice{ font-size:2rem }
+  .pfeats li{ font-size:.82rem }
 
-  /* Team cards — side by side on mobile */
+  /* Team — side by side */
   .teamgrid{ grid-template-columns:1fr 1fr }
   .tmcard{ padding:1.5rem 1rem }
-  .tmavatar{ width:56px; height:56px; font-size:1.1rem }
+  .tmavatar{ width:54px; height:54px; font-size:1rem; margin-bottom:.85rem }
   .tmname{ font-size:.85rem }
   .tmrole{ font-size:.72rem }
-  .tmbio{ font-size:.74rem }
+  .tmbio{ font-size:.73rem; margin-top:.5rem }
 
-  /* Contact form */
+  /* Testimonials */
+  .tquote{ font-size:.85rem }
+  .tname{ font-size:.82rem }
+
+  /* Contact */
+  .contact-grid{ gap:2rem }
+  .contact-info{ display:block }
+  .contact-info h3{ font-size:1rem }
+  .contact-info p{ font-size:.84rem; margin-bottom:1.5rem }
+  .cinfo-items{ gap:.75rem }
+  .cinfo-item{ font-size:.8rem }
   .frow{ grid-template-columns:1fr }
-  .contact-info{ display:none } /* hide on small screens, keep just form */
-  #contact .inner > .reveal:first-child{ display:block }
-
-  /* Footer — 2 col then full */
-  footer{ grid-template-columns:1fr 1fr; gap:2rem; padding:2.5rem 4% }
-  .fbrand{ grid-column:1/-1 }
-  .fbot{ flex-direction:column; text-align:center; gap:.75rem }
-  .fbot-certs{ justify-content:center }
+  .fgroup input,
+  .fgroup textarea,
+  .fgroup select{ font-size:1rem; padding:.75rem .85rem }
+  .fsubmit{ font-size:.95rem; padding:.85rem }
 
   /* CTA band */
-  #cta-band{ padding:4rem 4% }
-  .cta-btns{ flex-direction:column; align-items:center }
-  .cta-btns .btn-p,.cta-btns .btn-o{ width:100%; text-align:center }
+  #cta-band{ padding:3.5rem 4% }
+  #cta-band h2{ font-size:1.75rem }
+  .cta-btns{ flex-direction:column; align-items:stretch; gap:.6rem }
+  .cta-btns .btn-p,
+  .cta-btns .btn-o{ width:100%; text-align:center; padding:.9rem }
 
-  /* Mobile nav larger tap targets */
-  .mobile-nav a{ font-size:1rem; padding:.9rem 0 }
-  .mobile-nav{ padding:1.5rem 4% }
+  /* Footer */
+  footer{ grid-template-columns:1fr; gap:2rem; padding:2.5rem 4% }
+  .fbrand{ grid-column:auto }
+  .fbrand p{ max-width:100% }
+  .fbot{ flex-direction:column; text-align:center; gap:.6rem; padding-top:1.5rem }
+  .fbot-certs{ justify-content:center; flex-wrap:wrap }
 }
 
 /* ══════════════════════════════════
    RESPONSIVE — TINY (≤380px)
 ══════════════════════════════════ */
 @media(max-width:380px){
-  #hero h1{ font-size:1.75rem }
-  .stat-n{ font-size:1.6rem }
+  #hero h1{ font-size:1.65rem }
+  .stat-n{ font-size:1.5rem }
+  .stat-d{ font-size:.68rem }
   .teamgrid{ grid-template-columns:1fr }
+  .tmcard{ padding:1.5rem }
+  .tmavatar{ width:64px; height:64px; font-size:1.3rem }
+  .tmname{ font-size:.92rem }
+  .tmbio{ font-size:.76rem }
   footer{ grid-template-columns:1fr }
+  .hero-btns .btn-p,
+  .hero-btns .btn-o{ font-size:.85rem }
+  .tab{ font-size:.7rem; padding:.3rem .7rem }
 }
 </style>
 </head>
@@ -552,7 +584,7 @@ footer{padding:3.5rem 5%;border-top:1px solid var(--border);display:grid;grid-te
 
     <!-- LEFT: Text content -->
     <div class="hero-text">
-      <div class="hero-badge"><span class="hero-badge-dot"></span>Now in Public Beta · Built for Scale</div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>Launching 2026 · Built for Scale</div>
       <h1>The full-stack<br><span class="hl"><span id="typed-text"></span><span class="type-cursor"></span></span><br>platform.</h1>
       <p class="hero-sub">Intelligence, automation and infrastructure for enterprises, AI startups and embedded innovators — all in one API-based solution.</p>
       <div class="hero-btns">
@@ -585,8 +617,8 @@ footer{padding:3.5rem 5%;border-top:1px solid var(--border);display:grid;grid-te
             <div class="hv-m-lbl">Model accuracy</div>
           </div>
           <div class="hv-m">
-            <div class="hv-m-val" style="background:linear-gradient(135deg,var(--ay),var(--ag));-webkit-background-clip:text;-webkit-text-fill-color:transparent">500+</div>
-            <div class="hv-m-lbl">Companies</div>
+            <div class="hv-m-val" style="background:linear-gradient(135deg,var(--ay),var(--ag));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Beta</div>
+            <div class="hv-m-lbl">Early Access Open</div>
           </div>
         </div>
         <div class="hv-bars">
@@ -609,13 +641,13 @@ footer{padding:3.5rem 5%;border-top:1px solid var(--border);display:grid;grid-te
         <div class="hv-activity">
           <div class="hv-act-row">
             <div class="hv-act-icon" style="background:rgba(121,250,75,.1);color:var(--ag)">✓</div>
-            <span class="hv-act-text">Model deployment successful</span>
-            <span class="hv-act-time">2m ago</span>
+            <span class="hv-act-text">Platform launched successfully</span>
+            <span class="hv-act-time">Live</span>
           </div>
           <div class="hv-act-row">
             <div class="hv-act-icon" style="background:rgba(48,215,241,.1);color:var(--ab)">⚡</div>
-            <span class="hv-act-text">Auto-scaled to 12 instances</span>
-            <span class="hv-act-time">5m ago</span>
+            <span class="hv-act-text">Beta program now open</span>
+            <span class="hv-act-time">New</span>
           </div>
           <div class="hv-act-row">
             <div class="hv-act-icon" style="background:rgba(252,227,68,.1);color:var(--ay)">📊</div>
@@ -635,16 +667,16 @@ footer{padding:3.5rem 5%;border-top:1px solid var(--border);display:grid;grid-te
 <!-- STATS -->
 <div id="stats">
   <div class="stat-cell reveal">
-    <div class="stat-n">500+</div>
-    <div class="stat-d">Companies powered globally</div>
+    <div class="stat-n">2026</div>
+    <div class="stat-d">Founded · Kathmandu, Nepal</div>
   </div>
   <div class="stat-cell reveal">
-    <div class="stat-n">$2.4M</div>
-    <div class="stat-d">Avg. annual savings per enterprise client</div>
+    <div class="stat-n">48ms</div>
+    <div class="stat-d">Average model inference latency</div>
   </div>
   <div class="stat-cell reveal">
-    <div class="stat-n">10×</div>
-    <div class="stat-d">Average productivity improvement</div>
+    <div class="stat-n">50+</div>
+    <div class="stat-d">AI models ready to deploy</div>
   </div>
   <div class="stat-cell reveal">
     <div class="stat-n">99.9%</div>
@@ -747,7 +779,33 @@ footer{padding:3.5rem 5%;border-top:1px solid var(--border);display:grid;grid-te
         <button class="tab" onclick="switchTab(this,'embedded')">Embedded</button>
       </div>
     </div>
-    <div class="cgrid cgrid-3 reveal" id="prod-grid"></div>
+    <!-- Enterprise products (default visible) -->
+    <div class="cgrid cgrid-3" id="prod-enterprise">
+      <div class="ccard"><div class="icon-box i1" style="font-size:1.2rem">🧠</div><h3>AI Automation Suite</h3><p>End-to-end workflow automation with context-aware agents that learn from your processes.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i2" style="font-size:1.2rem">📊</div><h3>Predictive Analytics</h3><p>Turn raw data into actionable forecasts. Identify trends before they happen.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i3" style="font-size:1.2rem">💬</div><h3>Conversational AI</h3><p>Deploy intelligent assistants trained on your knowledge, available 24/7 across every channel.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i4" style="font-size:1.2rem">🔍</div><h3>Document Intelligence</h3><p>Extract and synthesize information from thousands of documents in seconds.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i5" style="font-size:1.2rem">🛡️</div><h3>AI Risk &amp; Compliance</h3><p>Monitor model behavior, detect anomalies and stay compliant globally.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i6" style="font-size:1.2rem">🔗</div><h3>API &amp; Integrations</h3><p>Connect to your stack with 200+ pre-built integrations and a no-code studio.</p><a href="#" class="clink">Learn more →</a></div>
+    </div>
+    <!-- Startup products (hidden by default) -->
+    <div class="cgrid cgrid-3" id="prod-startup" style="display:none">
+      <div class="ccard"><div class="icon-box i2" style="font-size:1.2rem">🚀</div><h3>Quick Start Kit</h3><p>Go from idea to production AI in 48 hours with guided onboarding and a sandbox.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i1" style="font-size:1.2rem">💡</div><h3>Prototyping Studio</h3><p>Build and test AI models visually without writing infrastructure code.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i3" style="font-size:1.2rem">📦</div><h3>Model Library</h3><p>Access 50+ pre-trained models for NLP, vision, forecasting and classification.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i4" style="font-size:1.2rem">💰</div><h3>Usage-Based Pricing</h3><p>Pay only for what you use. No minimums, no surprises — scale as you grow.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i5" style="font-size:1.2rem">🤝</div><h3>Founder Support</h3><p>Dedicated AI strategist for every startup client during the first 90 days.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i6" style="font-size:1.2rem">📈</div><h3>Growth Analytics</h3><p>Track AI usage, model performance and ROI with built-in growth dashboards.</p><a href="#" class="clink">Learn more →</a></div>
+    </div>
+    <!-- Embedded products (hidden by default) -->
+    <div class="cgrid cgrid-3" id="prod-embedded" style="display:none">
+      <div class="ccard"><div class="icon-box i4" style="font-size:1.2rem">🏷️</div><h3>White-Label AI</h3><p>Deploy Ybetu AI under your own brand with custom UI and domain.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i1" style="font-size:1.2rem">🔌</div><h3>Embedded SDK</h3><p>Drop our SDK into any mobile or web app in hours with a few lines of code.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i5" style="font-size:1.2rem">💼</div><h3>Partner Program</h3><p>Revenue sharing, co-marketing opportunities and a dedicated partner success manager.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i2" style="font-size:1.2rem">🛠️</div><h3>Custom Models</h3><p>We build domain-specific AI models tailored to your product and customers.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i3" style="font-size:1.2rem">📋</div><h3>OEM Licensing</h3><p>Full OEM licensing for companies that want complete control over the stack.</p><a href="#" class="clink">Learn more →</a></div>
+      <div class="ccard"><div class="icon-box i6" style="font-size:1.2rem">📣</div><h3>API Reselling</h3><p>Resell Ybetu AI API access to your own customers with custom pricing.</p><a href="#" class="clink">Learn more →</a></div>
+    </div>
   </div>
 </section>
 
@@ -1084,51 +1142,15 @@ const track=document.getElementById('logos-track');
 });
 
 /* ── Products ── */
-const prodData={
-  enterprise:[
-    {e:'🧠',c:'i1',t:'AI Automation Suite',d:'End-to-end workflow automation with context-aware agents that learn from your processes.'},
-    {e:'📊',c:'i2',t:'Predictive Analytics',d:'Turn raw data into actionable forecasts. Identify trends before they happen.'},
-    {e:'💬',c:'i3',t:'Conversational AI',d:'Deploy intelligent assistants trained on your knowledge, available 24/7 across every channel.'},
-    {e:'🔍',c:'i4',t:'Document Intelligence',d:'Extract and synthesize information from thousands of documents in seconds.'},
-    {e:'🛡️',c:'i5',t:'AI Risk & Compliance',d:'Monitor model behavior, detect anomalies and stay compliant globally.'},
-    {e:'🔗',c:'i6',t:'API & Integrations',d:'Connect to your stack with 200+ pre-built integrations and a no-code studio.'},
-  ],
-  startup:[
-    {e:'🚀',c:'i2',t:'Quick Start Kit',d:'Go from idea to production AI in 48 hours with guided onboarding and a sandbox.'},
-    {e:'💡',c:'i1',t:'Prototyping Studio',d:'Build and test AI models visually without writing infrastructure code.'},
-    {e:'📦',c:'i3',t:'Model Library',d:'Access 50+ pre-trained models for NLP, vision, forecasting and classification.'},
-    {e:'💰',c:'i4',t:'Usage-Based Pricing',d:'Pay only for what you use. No minimums, no surprises — scale as you grow.'},
-    {e:'🤝',c:'i5',t:'Founder Support',d:'Dedicated AI strategist for every startup client during the first 90 days.'},
-    {e:'📈',c:'i6',t:'Growth Analytics',d:'Track AI usage, model performance and ROI with built-in growth dashboards.'},
-  ],
-  embedded:[
-    {e:'🏷️',c:'i4',t:'White-Label AI',d:'Deploy Ybetu AI under your own brand with custom UI and domain.'},
-    {e:'🔌',c:'i1',t:'Embedded SDK',d:'Drop our SDK into any mobile or web app in hours with a few lines of code.'},
-    {e:'💼',c:'i5',t:'Partner Program',d:'Revenue sharing, co-marketing opportunities and a dedicated partner success manager.'},
-    {e:'🛠️',c:'i2',t:'Custom Models',d:'We build domain-specific AI models tailored to your product and customers.'},
-    {e:'📋',c:'i3',t:'OEM Licensing',d:'Full OEM licensing for companies that want complete control over the stack.'},
-    {e:'📣',c:'i6',t:'API Reselling',d:'Resell Ybetu AI API access to your own customers with custom pricing.'},
-  ]
-};
-function renderProds(key){
-  const grid=document.getElementById('prod-grid');
-  grid.style.opacity=0;grid.style.transition='opacity .22s';
-  setTimeout(()=>{
-    grid.innerHTML=prodData[key].map(p=>`
-      <div class="ccard">
-        <div class="icon-box ${p.c}" style="font-size:1.2rem">${p.e}</div>
-        <h3>${p.t}</h3><p>${p.d}</p>
-        <a href="#" class="clink">Learn more →</a>
-      </div>`).join('');
-    grid.style.opacity=1;
-  },180);
-}
-function switchTab(el,key){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+/* ── Product tabs — static show/hide ── */
+function switchTab(el, key) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-  renderProds(key);
+  ['enterprise','startup','embedded'].forEach(k => {
+    const g = document.getElementById('prod-' + k);
+    if (g) g.style.display = k === key ? 'grid' : 'none';
+  });
 }
-renderProds('enterprise');
 
 /* ── Contact form — Formspree AJAX ── */
 /* ── Contact form — Formspree AJAX submission ── */
