@@ -1,3 +1,5 @@
 logo/
 website/
 pdf/
+node_modules/
+dist/

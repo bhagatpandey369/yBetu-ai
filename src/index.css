@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* Monochrome brand tokens matching the black-and-white Ybetu AI logo */
+@theme {
+  --color-bg: #f8f8f5;
+  --color-bg-alt: #efefea;
+  --color-card: #ffffff;
+  --color-card-2: #fbfbf9;
+  --color-ink: #0b0b0b;
+  --color-ink-dim: #4a4a46;
+  --color-ink-faint: #b4b4ad;
+  --color-muted: #75756f;
+  --color-line: rgb(11 11 11 / 0.08);
+  --color-line-md: rgb(11 11 11 / 0.16);
+
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "DM Serif Display", serif;
+  --font-deva: "Noto Sans Devanagari", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg text-ink font-sans antialiased;
+  line-height: 1.6;
+}
+
+::selection {
+  background: #0b0b0b;
+  color: #f8f8f5;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
