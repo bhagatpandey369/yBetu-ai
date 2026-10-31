@@ -4,7 +4,7 @@ import { involvement } from '../content'
 
 export default function Involved({ onSelect }) {
   return (
-    <section id="involved" className="scroll-mt-16 bg-bg-alt py-24">
+    <section id="get-involved" className="scroll-mt-16 bg-bg-alt py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading eyebrow="Get involved" title="Nepal’s model, built by Nepal’s people.">
           A foundation model takes data, compute and many hands. Here’s how you can help.
@@ -14,7 +14,7 @@ export default function Involved({ onSelect }) {
           {involvement.map((item, i) => (
             <Reveal key={item.title} delay={(i % 3) * 100}>
               <a
-                href="#contact"
+                href="/contact"
                 onClick={() => onSelect(item.interest)}
                 className="flex h-full flex-col rounded-xl border border-line bg-card p-7 transition-colors hover:border-ink/40 hover:bg-card-2"
               >

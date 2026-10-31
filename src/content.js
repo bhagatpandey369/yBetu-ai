@@ -8,13 +8,25 @@ export const contact = {
   formspree: 'https://formspree.io/f/mqewgvjq',
 }
 
+export const siteUrl = 'https://www.ybetu.com'
+export const siteTitle = "Ybetu AI — Building Nepal's Foundation Model"
+
+// Each path matches a section id: /mission scrolls to <section id="mission">
 export const nav = [
-  { label: 'Mission', href: '#mission' },
-  { label: 'Research', href: '#research' },
-  { label: 'Roadmap', href: '#roadmap' },
-  { label: 'Get Involved', href: '#involved' },
-  { label: 'Team', href: '#team' },
+  { label: 'Mission', href: '/mission' },
+  { label: 'Research', href: '/research' },
+  { label: 'Roadmap', href: '/roadmap' },
+  { label: 'Get Involved', href: '/get-involved' },
+  { label: 'Team', href: '/team' },
 ]
+
+// Every path that gets its own URL (and its own HTML file at build time)
+export const pages = [...nav, { label: 'Contact', href: '/contact' }]
+
+export function pageTitle(path) {
+  const page = pages.find((p) => p.href === path)
+  return page ? `${page.label} — Ybetu AI` : siteTitle
+}
 
 export const hero = {
   badge: 'Research lab · Kathmandu · Founded 2026',

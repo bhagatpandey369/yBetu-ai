@@ -25,7 +25,7 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+        <a href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <Logo className="h-8 w-8" />
           <span className="text-[1.05rem] font-semibold tracking-[0.09em]">
             YBETU <span className="font-normal text-muted">AI</span>
@@ -43,7 +43,7 @@ export default function Nav() {
         </ul>
 
         <a
-          href="#contact"
+          href="/contact"
           className="hidden rounded-md bg-ink px-4 py-2 text-sm font-medium text-bg transition-opacity hover:opacity-85 md:inline-block"
         >
           Join the effort
@@ -78,7 +78,7 @@ export default function Nav() {
             ))}
           </ul>
           <a
-            href="#contact"
+            href="/contact"
             onClick={() => setOpen(false)}
             className="mt-6 block rounded-md bg-ink px-4 py-3 text-center font-medium text-bg"
           >

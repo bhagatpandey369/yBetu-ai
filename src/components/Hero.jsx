@@ -29,13 +29,13 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <a
-            href="#involved"
+            href="/get-involved"
             className="rounded-md bg-ink px-6 py-3 text-center font-medium text-bg transition-opacity hover:opacity-85"
           >
             Join the effort
           </a>
           <a
-            href="#roadmap"
+            href="/roadmap"
             className="rounded-md border border-line-md px-6 py-3 text-center font-medium text-ink transition-colors hover:bg-card"
           >
             See the roadmap →

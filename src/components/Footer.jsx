@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="border-t border-line bg-bg-alt">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-14 sm:px-6 md:flex-row md:justify-between">
         <div className="max-w-sm">
-          <a href="#top" className="mb-4 flex items-center gap-2.5">
+          <a href="/" className="mb-4 flex items-center gap-2.5">
             <Logo className="h-8 w-8" />
             <span className="font-semibold tracking-[0.09em]">
               YBETU <span className="font-normal text-muted">AI</span>
@@ -32,7 +32,7 @@ export default function Footer() {
           </ul>
           <ul className="space-y-2.5 text-ink-dim">
             <li>
-              <a href="#contact" className="hover:text-ink">Contact</a>
+              <a href="/contact" className="hover:text-ink">Contact</a>
             </li>
             <li>
               <a href={`mailto:${contact.email}`} className="break-all hover:text-ink">{contact.email}</a>
